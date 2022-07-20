@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
 
+
+
+
+
 function App() {
+
+  const [value,setValue] = useState(0);
+
+  const onIncreaseHandler = ()=>{
+    setValue(value + 1);
+  }
+  const onDecreaseHandler = ()=>{
+    if(value > 0)
+    setValue(value - 1);
+  }
+  const onResetHandler = ()=>{
+    setValue(0);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className = "container">
+      <p className="paragraph">{value}</p>
+      <button className="increase" onClick={onIncreaseHandler} >Increase</button>
+      <button className="increase" onClick={onDecreaseHandler}>Decrease</button>
+      <button className="increase" onClick={onResetHandler}>Reaset</button>
+
     </div>
   );
 }
